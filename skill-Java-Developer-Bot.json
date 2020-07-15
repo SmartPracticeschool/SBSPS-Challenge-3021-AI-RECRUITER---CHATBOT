@@ -1,0 +1,905 @@
+{
+  "intents": [
+    {
+      "intent": "response_n",
+      "examples": [
+        {
+          "text": "N"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "positive",
+      "examples": [
+        {
+          "text": "yes"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "educational_qualifications",
+      "examples": [
+        {
+          "text": "B tech"
+        },
+        {
+          "text": "MBA"
+        },
+        {
+          "text": "MS"
+        },
+        {
+          "text": "M tech"
+        },
+        {
+          "text": "master of technology"
+        },
+        {
+          "text": "btech"
+        },
+        {
+          "text": "mtech"
+        },
+        {
+          "text": "m.tech"
+        },
+        {
+          "text": "m.e"
+        },
+        {
+          "text": "M E"
+        },
+        {
+          "text": "BE"
+        },
+        {
+          "text": "Phd"
+        },
+        {
+          "text": "bachelor of technology"
+        },
+        {
+          "text": "bachelor of engineering"
+        },
+        {
+          "text": "ME"
+        },
+        {
+          "text": "master of engineering"
+        },
+        {
+          "text": "b.tech"
+        },
+        {
+          "text": "m.s"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "hi"
+        },
+        {
+          "text": "good evening"
+        },
+        {
+          "text": "good afternoon"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hey"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "question1",
+      "examples": [
+        {
+          "text": "i am ready"
+        },
+        {
+          "text": "sure"
+        },
+        {
+          "text": "ya"
+        },
+        {
+          "text": "yes"
+        },
+        {
+          "text": "ok"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "noteligible",
+      "examples": [
+        {
+          "text": "msc"
+        },
+        {
+          "text": "m sc"
+        },
+        {
+          "text": "m a"
+        },
+        {
+          "text": "m.sc"
+        },
+        {
+          "text": "b.b.a"
+        },
+        {
+          "text": "mcom"
+        },
+        {
+          "text": "bba"
+        },
+        {
+          "text": "m com"
+        },
+        {
+          "text": "bsc"
+        },
+        {
+          "text": "ba"
+        },
+        {
+          "text": "b sc"
+        },
+        {
+          "text": "b.sc"
+        },
+        {
+          "text": "b a"
+        },
+        {
+          "text": "b.a"
+        },
+        {
+          "text": "bcom"
+        },
+        {
+          "text": "m.com"
+        },
+        {
+          "text": "b com"
+        },
+        {
+          "text": "b.com"
+        },
+        {
+          "text": "ma"
+        },
+        {
+          "text": "m.a"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "application",
+      "examples": [
+        {
+          "text": "I want to apply"
+        },
+        {
+          "text": "apply"
+        },
+        {
+          "text": "I want to apply for a job"
+        },
+        {
+          "text": "start recruitment"
+        },
+        {
+          "text": "I want to start my recruitment process"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "negative",
+      "examples": [
+        {
+          "text": "no"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "response_p",
+      "examples": [
+        {
+          "text": "Y"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "greetings",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "good afternoon",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "good evening",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "good morning",
+          "synonyms": [
+            "gm",
+            "gun mrng",
+            "morning"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "application_details",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry you are not eligible for this job since this is a must requirement."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1593346039593",
+      "conditions": "#negative",
+      "dialog_node": "response_10_1593346302660",
+      "previous_sibling": "response_9_1593346074009"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Do have prior working experience in Spring MVC? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1593346039593",
+      "conditions": "#positive",
+      "dialog_node": "response_9_1593346074009"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry you are not eligible for this job. An Engineering graduate is required for this job. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1593344565579",
+      "conditions": "#noteligible",
+      "dialog_node": "response_9_1593345290704",
+      "previous_sibling": "response_4_1593345214272"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "How much work experience do you have?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1593344565579",
+      "conditions": "#educational_qualifications",
+      "dialog_node": "response_4_1593345214272"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry you are not eligible for this job since this is a must requirement."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1592492125603",
+      "conditions": "#negative",
+      "dialog_node": "response_4_1593521666419",
+      "previous_sibling": "response_9_1593521649453"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Starting with personality traits questions....Do you think targets and deadlines are important while working? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1592492125603",
+      "conditions": "#positive",
+      "dialog_node": "response_9_1593521649453"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "sorry you are not eligible for this job since minimum one year of work experience is required for this job."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1593345376063",
+      "conditions": "@sys-number < 0.9",
+      "dialog_node": "response_6_1593345806690",
+      "previous_sibling": "response_8_1593345593068"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Do you have prior working experience in Java? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1593345376063",
+      "conditions": "@sys-number > 1.9",
+      "dialog_node": "response_8_1593345593068"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry you are not eligible for this job since this is a must requirement."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1593345940887",
+      "conditions": "#negative",
+      "dialog_node": "response_6_1593346576443",
+      "previous_sibling": "response_5_1593346447599"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Do you have prior working experience in MySQL? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1593345940887",
+      "conditions": "#positive",
+      "dialog_node": "response_5_1593346447599"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good Evening!! This is Recruiter Bot!! Do you want to apply for this post?(Please specify as Y/N)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1592307973495",
+      "conditions": "@greetings:(good evening)",
+      "dialog_node": "response_4_1592309383726",
+      "previous_sibling": "response_5_1592309306000"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi!! This is Recruiter Bot!! Do you want to apply for this post?(Please specify as Y/N)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1592307973495",
+      "conditions": "anything_else",
+      "dialog_node": "response_4_1592309442324",
+      "previous_sibling": "response_10_1592309421229"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good Afternoon!! This is Recruiter Bot!! Do you want to apply for this post?(Please specify as Y/N)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1592307973495",
+      "conditions": "@greetings:(good afternoon)",
+      "dialog_node": "response_10_1592309421229",
+      "previous_sibling": "response_4_1592309383726"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good Morning!! This is Recruiter Bot!! Do you want to apply for this post?(Please specify as Y/N)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1592307973495",
+      "conditions": "@greetings:(good morning)",
+      "dialog_node": "response_5_1592309306000"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay thank you."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1593344437123",
+      "conditions": "#response_n",
+      "dialog_node": "response_5_1594384147800",
+      "previous_sibling": "response_6_1594384132032"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What is your Educational Qualification?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1593344437123",
+      "conditions": "#response_p",
+      "dialog_node": "response_6_1594384132032"
+    },
+    {
+      "type": "standard",
+      "title": "must_skill3",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_10_1593345940887",
+      "previous_sibling": "node_1_1593346039593"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_5_1592567651594",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "personalityQ6",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Do you find it difficult to approach others? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_5_1592567651594"
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_7_1592493720655",
+      "previous_sibling": "node_7_1592493555017"
+    },
+    {
+      "type": "standard",
+      "title": "must_skills",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1593346039593"
+      },
+      "conditions": "@sys-number > 0.9 || @sys-number<0.9",
+      "dialog_node": "node_9_1593345376063",
+      "previous_sibling": "node_7_1593344565579"
+    },
+    {
+      "type": "standard",
+      "title": "personalityQ2",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Are you a confident person? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_7_1592493075459"
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_8_1592492723179",
+      "previous_sibling": "node_10_1592492125603"
+    },
+    {
+      "type": "standard",
+      "title": "personalityQ5",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Can you anticipate the needs of others?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_7_1592493720655"
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_7_1592493555017",
+      "previous_sibling": "node_9_1592493394137"
+    },
+    {
+      "type": "standard",
+      "title": "must_skills2",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_10_1593345940887"
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_1_1593346039593",
+      "previous_sibling": "node_9_1593345376063"
+    },
+    {
+      "type": "standard",
+      "title": "personalityQ1",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_8_1592492723179"
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_10_1592492125603",
+      "previous_sibling": "node_10_1593345940887"
+    },
+    {
+      "type": "standard",
+      "title": "personalityQ3",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Are you easily satisfied with what you do? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_9_1592493394137"
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_7_1592493075459",
+      "previous_sibling": "node_8_1592492723179"
+    },
+    {
+      "type": "standard",
+      "title": "Education",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#response_p || #response_n",
+      "dialog_node": "node_7_1593344437123",
+      "previous_sibling": "node_4_1592307973495"
+    },
+    {
+      "type": "standard",
+      "title": "work_experience",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#educational_qualifications || #noteligible",
+      "dialog_node": "node_7_1593344565579",
+      "previous_sibling": "node_7_1593344437123"
+    },
+    {
+      "type": "standard",
+      "title": "greetings",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@greetings || #greetings",
+      "dialog_node": "node_4_1592307973495",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "personalityQ4",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Are you comfortable working with incomplete information and guessing its meaning? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_7_1592493555017"
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_9_1592493394137",
+      "previous_sibling": "node_7_1592493075459"
+    },
+    {
+      "type": "standard",
+      "title": "thankyou",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Congratulations you are shortlisted for an interview.</br><a target = \"_blank\" href = \"https://node-red-techvanguard.eu-gb.mybluemix.net/ui/#!/1?socketid=P-OFJyS48SXSmc_LAAAE\">Click here</a> to proceed further."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#positive || #negative",
+      "dialog_node": "node_5_1592567651594",
+      "previous_sibling": "node_7_1592493720655"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello!!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Java Developer Bot",
+  "language": "en",
+  "description": ""
+}
